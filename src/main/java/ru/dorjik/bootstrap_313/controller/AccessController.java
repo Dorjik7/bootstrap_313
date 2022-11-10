@@ -5,8 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.dorjik.bootstrap_313.models.User;
+import ru.dorjik.bootstrap_313.service.UserService;
 import ru.dorjik.bootstrap_313.service.security.AccountDetails;
-import ru.dorjik.bootstrap_313.service.security.UserService;
+
 
 import java.util.Arrays;
 

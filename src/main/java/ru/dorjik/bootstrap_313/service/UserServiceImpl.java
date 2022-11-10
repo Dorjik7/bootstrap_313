@@ -5,10 +5,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.dorjik.bootstrap_313.dao.UserDao;
+
 import ru.dorjik.bootstrap_313.models.User;
-import ru.dorjik.bootstrap_313.service.security.UserService;
+
 
 import java.util.List;
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -64,5 +66,7 @@ public class UserServiceImpl implements UserService {
 
         userDao.deleteUser(id);
     }
+
 }
+
 

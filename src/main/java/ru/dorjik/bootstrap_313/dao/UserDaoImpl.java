@@ -1,7 +1,6 @@
 package ru.dorjik.bootstrap_313.dao;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import ru.dorjik.bootstrap_313.models.Role;
 import ru.dorjik.bootstrap_313.models.User;
 
 import javax.persistence.EntityManager;
@@ -13,7 +12,7 @@ public class UserDaoImpl implements UserDao {
 
     private final EntityManager entityManager;
 
-    @Autowired
+
     public UserDaoImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
@@ -61,5 +60,14 @@ public class UserDaoImpl implements UserDao {
     public List<User> findByUsername(String username) {
 
         return entityManager.createQuery("select u from User u join fetch u.roles where u.username =:username").setParameter("username", username).getResultList();
+    }
+    @Override
+    public Role findById(long id) {
+        return entityManager.find(Role.class,id);
+    }
+
+    @Override
+    public Role getRoleByName(String name) {
+        return entityManager.find(Role.class, name);
     }
 }

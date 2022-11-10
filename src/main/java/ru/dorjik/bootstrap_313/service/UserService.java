@@ -1,4 +1,4 @@
-package ru.dorjik.bootstrap_313.service.security;
+package ru.dorjik.bootstrap_313.service;
 
 import ru.dorjik.bootstrap_313.models.User;
 
@@ -14,5 +14,4 @@ public interface UserService {
     void editUser(Long id, User user);
 
     void deleteUser(Long id);
-
 }
