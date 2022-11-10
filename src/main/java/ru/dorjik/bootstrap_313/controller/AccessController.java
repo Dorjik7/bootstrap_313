@@ -12,11 +12,11 @@ import java.util.Arrays;
 
 @Controller
 @RequestMapping("/")
-public class AdminController {
-    private UserService adminService;
+public class AccessController {
+    private UserService service;
 
-    public AdminController(UserService adminService) {
-        this.adminService =adminService;
+    public AccessController(UserService service) {
+        this.service =service;
     }
 
     @GetMapping("/user")
@@ -31,9 +31,9 @@ public class AdminController {
     @GetMapping("/")
     public String userInfo(Model model) {
 
-        if (adminService.userList().isEmpty())
-            adminService.addUser(new User("admin", "admin", Arrays.asList("ROLE_ADMIN")));
-        model.addAttribute("users", adminService.userList());
+        if (service.userList().isEmpty())
+            service.addUser(new User("admin", "admin", Arrays.asList("ROLE_ADMIN")));
+        model.addAttribute("users", service.userList());
         User user = new User();
         model.addAttribute("newUser", user);
         return "admin";
@@ -42,21 +42,21 @@ public class AdminController {
     @PostMapping("/admin/register")
     public String inputUser(@ModelAttribute("user") User user) {
 
-        adminService.addUser(user);
+        service.addUser(user);
         return "redirect:/";
     }
 
     @PatchMapping("/admin/{id}")
     public String edit(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
 
-        adminService.editUser(id, user);
+        service.editUser(id, user);
         return "redirect:/";
     }
 
     @DeleteMapping("/admin/{id}")
     public String delete(@PathVariable("id") Long id) {
 
-        adminService.deleteUser(id);
+        service.deleteUser(id);
         return "redirect:/";
     }
 }
