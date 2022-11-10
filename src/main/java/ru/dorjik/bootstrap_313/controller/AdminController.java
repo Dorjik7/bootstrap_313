@@ -29,11 +29,11 @@ public class AdminController {
     }
 
     @GetMapping("/")
-    public String showUsers(Model model) {
+    public String userInfo(Model model) {
 
-        if (adminService.listUsers().isEmpty())
+        if (adminService.userList().isEmpty())
             adminService.addUser(new User("admin", "admin", Arrays.asList("ROLE_ADMIN")));
-        model.addAttribute("users", adminService.listUsers());
+        model.addAttribute("users", adminService.userList());
         User user = new User();
         model.addAttribute("newUser", user);
         return "admin";
