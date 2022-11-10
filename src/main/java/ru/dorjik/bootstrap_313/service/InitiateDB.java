@@ -7,16 +7,16 @@ import java.util.Collections;
 
 @Component
 public class InitiateDB implements ApplicationRunner {
-    private final UserService usersService;
+    private final UserService userService;
 
-    public InitiateDB(UserService usersService) {
-        this.usersService = usersService;
+    public InitiateDB(UserService userService) {
+        this.userService = userService;
     }
     @Override
     public void run(ApplicationArguments args){
         User admin = new User( "admin", "admin", "admin", "admin",22, "admin@mail.ru", Collections.singleton("ROLE_ADMIN"));
         User user = new User( "user", "user", "user", "user",21, "user@mail.ru", Collections.singleton("ROLE_USER"));
-        usersService.addUser(admin);
-        usersService.addUser(user);
+        userService.addUser(admin);
+        userService.addUser(user);
     }
 }
