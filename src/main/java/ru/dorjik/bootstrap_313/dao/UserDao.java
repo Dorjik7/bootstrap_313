@@ -4,7 +4,6 @@ import ru.dorjik.bootstrap_313.models.Role;
 import ru.dorjik.bootstrap_313.models.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserDao {
     void addUser(User user);

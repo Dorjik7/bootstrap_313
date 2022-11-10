@@ -4,7 +4,6 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import ru.dorjik.bootstrap_313.models.User;
-import ru.dorjik.bootstrap_313.service.UserService;
 
 import java.util.Collections;
 
