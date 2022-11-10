@@ -1,7 +1,5 @@
 package ru.dorjik.bootstrap_313.service;
-
 import ru.dorjik.bootstrap_313.models.User;
-
 import java.util.List;
 
 public interface UserService {

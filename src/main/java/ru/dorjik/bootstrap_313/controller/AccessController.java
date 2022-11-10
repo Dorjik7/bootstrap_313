@@ -7,14 +7,12 @@ import org.springframework.web.bind.annotation.*;
 import ru.dorjik.bootstrap_313.models.User;
 import ru.dorjik.bootstrap_313.service.UserService;
 import ru.dorjik.bootstrap_313.service.security.AccountDetails;
-
-
 import java.util.Arrays;
 
 @Controller
 @RequestMapping("/")
 public class AccessController {
-    private UserService service;
+    private final UserService service;
 
     public AccessController(UserService service) {
         this.service =service;

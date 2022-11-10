@@ -1,9 +1,8 @@
 package ru.dorjik.bootstrap_313.service.security;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ru.dorjik.bootstrap_313.models.User;
-
-
 import java.util.Collection;
 
 public class AccountDetails implements UserDetails {

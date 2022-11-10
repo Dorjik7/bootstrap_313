@@ -2,7 +2,6 @@ package ru.dorjik.bootstrap_313.dao;
 
 import ru.dorjik.bootstrap_313.models.Role;
 import ru.dorjik.bootstrap_313.models.User;
-
 import java.util.List;
 
 public interface UserDao {

@@ -2,9 +2,7 @@ package ru.dorjik.bootstrap_313.dao;
 import org.springframework.stereotype.Repository;
 import ru.dorjik.bootstrap_313.models.Role;
 import ru.dorjik.bootstrap_313.models.User;
-
 import javax.persistence.EntityManager;
-
 import java.util.List;
 
 @Repository

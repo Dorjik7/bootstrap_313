@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.dorjik.bootstrap_313.dao.UserDao;
 import ru.dorjik.bootstrap_313.models.User;
-
-
 import java.util.List;
 
 
