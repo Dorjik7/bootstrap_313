@@ -1,4 +1,5 @@
 package ru.dorjik.bootstrap_313.controller;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.dorjik.bootstrap_313.models.User;
 import ru.dorjik.bootstrap_313.service.UserService;
 import ru.dorjik.bootstrap_313.service.security.AccountDetails;
+
 import java.util.Arrays;
 
 @Controller
@@ -15,7 +17,7 @@ public class AccessController {
     private final UserService service;
 
     public AccessController(UserService service) {
-        this.service =service;
+        this.service = service;
     }
 
     @GetMapping("/user")
@@ -29,9 +31,6 @@ public class AccessController {
 
     @GetMapping("/")
     public String userInfo(Model model) {
-
-        if (service.userList().isEmpty())
-            service.addUser(new User("admin", "admin", Arrays.asList("ROLE_ADMIN")));
         model.addAttribute("users", service.userList());
         User user = new User();
         model.addAttribute("newUser", user);
