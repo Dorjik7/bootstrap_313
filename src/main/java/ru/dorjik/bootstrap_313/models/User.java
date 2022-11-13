@@ -1,6 +1,7 @@
 package ru.dorjik.bootstrap_313.models;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -31,13 +32,13 @@ public class User implements UserDetails {
     @Column
     private String email;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "UserRoles",
             joinColumns = @JoinColumn(name = "UserId"),
             inverseJoinColumns = @JoinColumn(name = "RoleId")
     )
-    private Set<Role> roles;
+    private Set<Role> roles =new HashSet<>();
 
     public User() {
     }
@@ -183,6 +184,9 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
+
 }
 
 

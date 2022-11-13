@@ -9,8 +9,6 @@ import ru.dorjik.bootstrap_313.models.User;
 import ru.dorjik.bootstrap_313.service.UserService;
 import ru.dorjik.bootstrap_313.service.security.AccountDetails;
 
-import java.util.Arrays;
-
 @Controller
 @RequestMapping("/")
 public class AccessController {
@@ -21,7 +19,7 @@ public class AccessController {
     }
 
     @GetMapping("/user")
-    public String showUser(Model model) {
+    public String userProfile(Model model) {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         AccountDetails accountDetails = (AccountDetails) authentication.getPrincipal();
@@ -30,7 +28,7 @@ public class AccessController {
     }
 
     @GetMapping("/")
-    public String userInfo(Model model) {
+    public String adminPanel(Model model) {
         model.addAttribute("users", service.userList());
         User user = new User();
         model.addAttribute("newUser", user);
@@ -38,21 +36,21 @@ public class AccessController {
     }
 
     @PostMapping("/admin/register")
-    public String inputUser(@ModelAttribute("user") User user) {
+    public String addNewUser(@ModelAttribute("user") User user) {
 
         service.addUser(user);
         return "redirect:/";
     }
 
     @PatchMapping("/admin/{id}")
-    public String edit(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
+    public String editUser(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
 
         service.editUser(id, user);
         return "redirect:/";
     }
 
     @DeleteMapping("/admin/{id}")
-    public String delete(@PathVariable("id") Long id) {
+    public String deleteUser(@PathVariable("id") Long id) {
 
         service.deleteUser(id);
         return "redirect:/";

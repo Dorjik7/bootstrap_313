@@ -1,9 +1,15 @@
 package ru.dorjik.bootstrap_313.service.security;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ru.dorjik.bootstrap_313.models.Role;
 import ru.dorjik.bootstrap_313.models.User;
+
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 public class AccountDetails implements UserDetails {
 
@@ -14,10 +20,19 @@ public class AccountDetails implements UserDetails {
     }
 
     @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        return user.getAuthorities();
+//    }
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return user.getAuthorities();
-    }
+        Set<Role> roles = user.getRoles();
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+
+        return authorities;
+    }
     @Override
     public String getPassword() {
         return this.user.getPassword();

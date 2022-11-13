@@ -5,9 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.dorjik.bootstrap_313.dao.UserDao;
 import ru.dorjik.bootstrap_313.models.User;
 
-
 import java.util.List;
-
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -63,7 +61,6 @@ public class UserServiceImpl implements UserService {
 
         userDao.deleteUser(id);
     }
-
 }
 
 

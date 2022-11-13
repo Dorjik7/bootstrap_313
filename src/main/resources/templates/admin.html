@@ -110,7 +110,7 @@
                                 <label class="form-label">
                                   <strong>First Name</strong>
                                 </label>
-                                <input class="form-control" type="text" name = "firstname" th:value="${user.getFirstName()}"/>
+                                <input class="form-control" type="text" name ="firstName" th:value="${user.getFirstName()}"/>
                               </div>
                             </div>
                             <div class="row justify-content-center">
@@ -150,6 +150,7 @@
                                 <label class="form-label">
                                   <strong>Role</strong>
                                 </label>
+
                                 <select required class="form-select" data-bs-toggle="tooltip" title="hold Lctrl for multiselect"  name = "roles" th:value="${user.getRoles()}" multiple style="max-height: 70px;min-height: 40px;">
                                   <option  th:value="ROLE_ADMIN">ADMIN</option>
                                   <option  th:value="ROLE_USER">USER</option>

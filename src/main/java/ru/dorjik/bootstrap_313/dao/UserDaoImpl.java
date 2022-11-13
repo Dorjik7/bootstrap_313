@@ -1,7 +1,9 @@
 package ru.dorjik.bootstrap_313.dao;
+
 import org.springframework.stereotype.Repository;
 import ru.dorjik.bootstrap_313.models.Role;
 import ru.dorjik.bootstrap_313.models.User;
+
 import javax.persistence.EntityManager;
 import java.util.List;
 
@@ -59,9 +61,10 @@ public class UserDaoImpl implements UserDao {
 
         return entityManager.createQuery("select u from User u join fetch u.roles where u.username =:username").setParameter("username", username).getResultList();
     }
+
     @Override
     public Role findById(long id) {
-        return entityManager.find(Role.class,id);
+        return entityManager.find(Role.class, id);
     }
 
     @Override

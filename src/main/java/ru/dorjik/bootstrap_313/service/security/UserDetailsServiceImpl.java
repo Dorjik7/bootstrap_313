@@ -24,11 +24,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Transactional
     public AccountDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         List<User> user = userDao.findByUsername(username);
-        if (user.size() != 1) {
-            throw new UsernameNotFoundException("User not found");
+//        if (user.size() != 1) {
+//            throw new UsernameNotFoundException("User not found");
+//        }
+//        return new AccountDetails(user.get(0));
+//    }
+            if (user == null) {
+                throw new UsernameNotFoundException("User is not found");
+            }
+
+            return new AccountDetails(user.get(0));
         }
-        return new AccountDetails(user.get(0));
+
     }
-}
 
 
